@@ -1,0 +1,65 @@
+data:
+  name: synthetic
+  root: data
+  image_size: 64
+  labeled_fraction: 0.1
+  labeled_count: null
+  train_size: 600
+  val_size: 80
+  test_size: 150
+  num_workers: 0
+  batch_size: 8
+  mu: 1
+  cache: true
+model:
+  name: separable_unet
+  in_channels: 3
+  num_classes: 2
+  width: 16
+  depth: 3
+  dropout: 0.1
+  axial_attention: true
+loss:
+  supervised: evidential
+  dice_weight: 1.0
+  ce_weight: 1.0
+  kl_weight: 0.1
+  kl_anneal_epochs: 8
+  boundary_weight: 0.0
+  label_smoothing: 0.0
+semi:
+  method: evidential
+  consistency_weight: 1.0
+  rampup_epochs: 6
+  ema_decay: 0.99
+  threshold: 0.95
+  vacuity_cutoff: 0.8
+  use_vacuity_gate: true
+  temperature: 1.0
+  strong_aug: true
+optim:
+  name: adamw
+  lr: 0.003
+  weight_decay: 0.0001
+  epochs: 20
+  steps_per_epoch: 20
+  scheduler: cosine
+  warmup_epochs: 2
+  grad_clip: 1.0
+eval:
+  threshold: 0.5
+  calibration_bins: 15
+  bootstrap: 2000
+  mc_dropout: 0
+  tta: false
+  use_ema: true
+run:
+  name: ablation_no_dissonance_temper
+  seed: 1337
+  device: auto
+  out_dir: results
+  ckpt_dir: checkpoints
+  log_every: 0
+  save_best: true
+  monitor: dice
+  deterministic: true

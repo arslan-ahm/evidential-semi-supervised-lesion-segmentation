@@ -1,0 +1,14 @@
+# Normalise line endings so the repository is identical on every platform.
+# Without this, pathlib.write_text on Windows silently produces CRLF and diffs
+# become unreadable across contributors.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.npz binary
+*.pt binary
+*.zip binary
+*.xlsm binary
+
+# Notebooks are JSON: keep them diffable, but do not let anyone reformat them.
+*.ipynb text eol=lf linguist-language=Jupyter\ Notebook

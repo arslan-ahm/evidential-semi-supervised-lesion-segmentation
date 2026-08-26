@@ -1,0 +1,19 @@
+# The 31M-parameter reference U-Net, trained supervised on the same labelled
+# subset. Establishes what the conventional architecture achieves under an
+# identical schedule, so the efficiency claim is measured rather than quoted.
+_base_: base.yaml
+
+model:
+  name: unet
+
+loss:
+  supervised: ce_dice
+
+semi:
+  method: none
+
+optim:
+  lr: 0.001          # the 31M model diverges at the 3e-3 used for the small net
+
+run:
+  name: unet_baseline

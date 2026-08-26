@@ -1,0 +1,14 @@
+# Prior work, ideology 1: unweighted consistency against an EMA teacher.
+# Tarvainen & Valpola (2017). Treats every unlabelled pixel as equally
+# trustworthy, which is the assumption this project argues is wrong.
+_base_: base.yaml
+
+loss:
+  supervised: ce_dice
+
+semi:
+  method: mean_teacher
+  consistency_weight: 1.0
+
+run:
+  name: mean_teacher

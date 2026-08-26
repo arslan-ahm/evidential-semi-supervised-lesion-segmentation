@@ -1,0 +1,4 @@
+model,params,params_m,gmacs,image_size,device,latency_bs1_ms,throughput_bs1_ips,latency_bs8_ms,throughput_bs8_ips,params_reduction_x,macs_reduction_x,latency_reduction_x,macs_per_ms_M
+separable_unet_tiny,112761,0.1128,0.0832,128,cpu,37.989,26.32,217.057,36.86,275.25,164.1,10.52,2.19
+separable_unet,958825,0.9588,0.3795,128,cpu,68.109,14.68,523.179,15.29,32.37,35.98,5.87,5.57
+unet,31037698,31.0377,13.6535,128,cpu,399.676,2.5,2959.131,2.7,1.0,1.0,1.0,34.16

@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "EviSSL: Evidential Semi-Supervised Skin Lesion Segmentation"
+abstract: >-
+  Semi-supervised segmentation methods select which unlabelled pixels to learn
+  from using a confidence threshold, which cannot distinguish a pixel the model
+  knows nothing about from a pixel whose evidence genuinely conflicts. This work
+  replaces the threshold with a subjective-logic decomposition of an evidential
+  (Dirichlet) head: vacuity gates the per-pixel consistency weight and
+  dissonance tempers the sharpening temperature. The method is trained on a
+  0.96M-parameter depthwise-separable U-Net with a gated axial bottleneck, 32
+  times smaller than the reference 31M-parameter U-Net, and is evaluated with
+  overlap, boundary-distance, calibration and uncertainty-ranking metrics under
+  paired statistical tests.
+type: software
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/HabibaSajid321/evidential-semi-supervised-lesion-segmentation"
+keywords:
+  - medical image segmentation
+  - semi-supervised learning
+  - evidential deep learning
+  - uncertainty quantification
+  - subjective logic
+  - calibration
+  - skin lesion
+  - dermoscopy
+  - efficient neural networks
+authors:
+  - family-names: Sajid
+    given-names: Habiba
+    affiliation: Independent Researcher

@@ -1,0 +1,13 @@
+# Lower bound: the labelled subset only, no unlabelled data at all.
+# Every semi-supervised number must be read against this line - a method that
+# does not beat it is not learning anything from the unlabelled pool.
+_base_: base.yaml
+
+loss:
+  supervised: ce_dice
+
+semi:
+  method: none
+
+run:
+  name: supervised_baseline

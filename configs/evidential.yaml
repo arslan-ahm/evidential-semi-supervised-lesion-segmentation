@@ -1,0 +1,22 @@
+# Ours: vacuity gates, dissonance tempers.
+#
+# The consistency weight is the teacher's total belief mass (1 - vacuity), so
+# every unlabelled pixel contributes in proportion to the evidence actually
+# accumulated there - no threshold. The sharpening temperature rises towards 1
+# where dissonance is high, so genuinely ambiguous boundary pixels are softened
+# rather than assigned a manufactured hard label.
+_base_: base.yaml
+
+loss:
+  supervised: evidential
+  kl_weight: 0.10
+  kl_anneal_epochs: 20
+
+semi:
+  method: evidential
+  vacuity_cutoff: 0.80
+  temperature: 0.50
+  consistency_weight: 1.0
+
+run:
+  name: evidential

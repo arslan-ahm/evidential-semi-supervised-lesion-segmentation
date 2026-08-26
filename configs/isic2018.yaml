@@ -1,0 +1,21 @@
+# Real data. Run `python scripts/download_isic.py` for retrieval instructions,
+# extract into data/isic2018/{images,masks}, then train with this config.
+# Defaults match what fits a free Colab T4 in about 40 minutes.
+_base_: evidential.yaml
+
+data:
+  name: isic2018
+  image_size: 256
+  labeled_fraction: 0.10
+  batch_size: 8
+  mu: 2
+
+model:
+  width: 32
+
+optim:
+  epochs: 80
+  lr: 0.002
+
+run:
+  name: isic2018_evidential

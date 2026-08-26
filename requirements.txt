@@ -1,0 +1,18 @@
+# Core (CPU wheels: pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision)
+torch>=2.2
+torchvision>=0.17
+numpy>=1.24
+scipy>=1.11
+pandas>=2.0
+pillow>=10.0
+pyyaml>=6.0
+matplotlib>=3.7
+tqdm>=4.66
+
+# Testing / linting
+pytest>=8.0
+ruff>=0.6
+
+# Notebooks (optional)
+jupyter>=1.0
+seaborn>=0.13

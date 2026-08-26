@@ -1,0 +1,77 @@
+# Shared defaults. Every experiment config inherits from this file via `_base_`,
+# so a change here applies to all methods at once and comparisons stay matched.
+#
+# Override any leaf from the command line:
+#   python scripts/train.py --config configs/evidential.yaml --set optim.epochs=60
+
+data:
+  name: synthetic          # synthetic | isic2018 | ph2
+  root: data
+  image_size: 128
+  labeled_fraction: 0.10   # the low-label regime the method targets
+  labeled_count: null
+  train_size: 400
+  val_size: 60
+  test_size: 100
+  num_workers: 0           # 0 is fastest on Windows for in-memory arrays
+  batch_size: 8
+  mu: 2                    # unlabelled batch = mu * labelled batch
+  cache: true
+
+model:
+  name: separable_unet
+  in_channels: 3
+  num_classes: 2
+  width: 24
+  depth: 4
+  dropout: 0.10
+  axial_attention: true
+
+loss:
+  supervised: evidential   # ce_dice | evidential
+  dice_weight: 1.0
+  ce_weight: 1.0
+  kl_weight: 0.10
+  kl_anneal_epochs: 20
+  boundary_weight: 0.0
+  label_smoothing: 0.0
+
+semi:
+  method: evidential       # none | mean_teacher | fixmatch | evidential
+  consistency_weight: 1.0
+  rampup_epochs: 15
+  ema_decay: 0.99
+  threshold: 0.95          # fixmatch only
+  vacuity_cutoff: 0.80     # ours only
+  use_vacuity_gate: true   # ours only; false = uniform weight (ablation)
+  temperature: 0.50
+  strong_aug: true
+
+optim:
+  name: adamw
+  lr: 0.003
+  weight_decay: 0.0001
+  epochs: 30
+  steps_per_epoch: 32   # fixed, so the labelled-fraction sweep is controlled
+  scheduler: cosine
+  warmup_epochs: 2
+  grad_clip: 1.0
+
+eval:
+  threshold: 0.50
+  calibration_bins: 15
+  bootstrap: 2000
+  mc_dropout: 0
+  tta: false
+  use_ema: true
+
+run:
+  name: base
+  seed: 1337
+  device: auto
+  out_dir: results
+  ckpt_dir: checkpoints
+  log_every: 0             # 0 silences per-step logging; epoch lines still print
+  save_best: true
+  monitor: dice
+  deterministic: true

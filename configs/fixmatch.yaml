@@ -1,0 +1,16 @@
+# Prior work, ideology 2: hard pseudo-labels above a fixed confidence
+# threshold. This is the ideology used by the repository this project builds
+# on. It discards every pixel below the threshold - including the ambiguous
+# boundary pixels where segmentation error actually concentrates.
+_base_: base.yaml
+
+loss:
+  supervised: ce_dice
+
+semi:
+  method: fixmatch
+  threshold: 0.95
+  consistency_weight: 1.0
+
+run:
+  name: fixmatch

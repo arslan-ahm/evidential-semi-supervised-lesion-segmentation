@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Data & artifacts (regenerate with `make data` / `make smoke`)
+data/isic2018/
+data/ph2/
+data/*.zip
+data/*.tar.gz
+checkpoints/*.pt
+checkpoints/*.pth
+!checkpoints/README.md
+!data/README.md
+wandb/
+
+# results/ is committed on purpose: the tables, figures and per-image CSVs are
+# ~1 MB total and they let a reader re-verify the paired statistics without
+# re-training anything. Only scratch runs are excluded.
+results/scratch/
+/runs/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,35 @@
+# Fast end-to-end verification on CPU: minutes, not hours. Real training, real
+# metrics - just a small dataset and few epochs. Used by `make smoke` and by
+# tests/test_end_to_end.py to prove the pipeline runs before a full run is
+# launched on GPU.
+_base_: base.yaml
+
+data:
+  image_size: 64
+  train_size: 64
+  val_size: 16
+  test_size: 24
+  labeled_fraction: 0.25
+  batch_size: 4
+  mu: 1
+
+model:
+  width: 16
+  depth: 3
+
+optim:
+  epochs: 3
+  steps_per_epoch: 6
+  warmup_epochs: 1
+
+loss:
+  kl_anneal_epochs: 2
+
+semi:
+  rampup_epochs: 1
+
+eval:
+  bootstrap: 200
+
+run:
+  name: smoke
