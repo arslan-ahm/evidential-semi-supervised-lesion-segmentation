@@ -205,7 +205,7 @@ Runs end to end with **no dataset download** — the default data source is a
 procedural dermoscopy generator (see below).
 
 ```bash
-git clone https://github.com/HabibaSajid321/evidential-semi-supervised-lesion-segmentation
+git clone https://github.com/arslan-ahmad/evidential-semi-supervised-lesion-segmentation
 cd evidential-semi-supervised-lesion-segmentation
 
 # uv handles the interpreter too; Python 3.12 is required (see note below)
@@ -409,11 +409,11 @@ void an experiment.
 
 ```bibtex
 @software{sajid2026evissl,
-  author = {Habiba Sajid},
+  author = {Arslan Ahmad},
   title  = {Calibrated Uncertainty over Confidence Thresholds: Evidential
             Semi-Supervised Skin Lesion Segmentation},
   year   = {2026},
-  url    = {https://github.com/HabibaSajid321/evidential-semi-supervised-lesion-segmentation}
+  url    = {https://github.com/arslan-ahmad/evidential-semi-supervised-lesion-segmentation}
 }
 ```
 

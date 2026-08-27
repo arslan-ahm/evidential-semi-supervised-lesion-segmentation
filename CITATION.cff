@@ -15,7 +15,7 @@ abstract: >-
 type: software
 version: 1.0.0
 license: MIT
-repository-code: "https://github.com/HabibaSajid321/evidential-semi-supervised-lesion-segmentation"
+repository-code: "https://github.com/arslan-ahmad/evidential-semi-supervised-lesion-segmentation"
 keywords:
   - medical image segmentation
   - semi-supervised learning
@@ -27,6 +27,6 @@ keywords:
   - dermoscopy
   - efficient neural networks
 authors:
-  - family-names: Sajid
-    given-names: Habiba
+  - family-names: Ahmad
+    given-names: Arslan
     affiliation: Independent Researcher
