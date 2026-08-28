@@ -1,6 +1,6 @@
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.13-red)
-![Tests](https://img.shields.io/badge/tests-231%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-234%20passing-brightgreen)
 ![Params](https://img.shields.io/badge/params-0.96M-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
