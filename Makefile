@@ -15,7 +15,7 @@ CPU_OVERRIDES := data.image_size=64 data.train_size=600 data.val_size=80 \
                  loss.kl_anneal_epochs=8 semi.rampup_epochs=6 \
                  eval.bootstrap=2000
 
-.PHONY: help setup test test-all lint fmt smoke data bench compare compare-gpu \
+.PHONY: help setup test test-all lint fmt smoke data bench compare compare-gpu notebooks \
         ablate sweep figures clean clean-results
 
 help:  ## Show this help
@@ -66,6 +66,23 @@ sweep:  ## Labelled-fraction sweep only
 
 figures:  ## Redraw figures from artefacts already on disk
 	$(PY) scripts/make_figures.py
+
+notebooks:  ## Execute notebooks 01-04 in place (output lands in results/scratch/ only)
+	@# Notebook runs must never land in results/: those tables and run
+	@# directories are the evidence behind every number in the README. The
+	@# notebooks pin run.out_dir=results/scratch and
+	@# tests/test_notebook_outputs.py enforces it. This target re-checks.
+	uv run --with jupyter --with nbconvert --with ipykernel --with seaborn \
+	  jupyter nbconvert --to notebook --execute --inplace \
+	  --ExecutePreprocessor.timeout=7200 \
+	  notebooks/01_data_and_uncertainty.ipynb \
+	  notebooks/03_ablations.ipynb \
+	  notebooks/04_calibration_and_uncertainty.ipynb \
+	  notebooks/02_train_and_compare.ipynb
+	@if [ -n "$$(git status --porcelain results/)" ]; then \
+	  echo "ERROR: a notebook wrote into results/"; \
+	  git status --porcelain results/; exit 1; \
+	else echo "results/ untouched"; fi
 
 clean:  ## Remove caches and build artefacts
 	rm -rf .pytest_cache .ruff_cache build dist src/*.egg-info
