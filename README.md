@@ -7,7 +7,9 @@
 # Calibrated Uncertainty over Confidence Thresholds
 
 <!-- links:begin -->
-**[Live results and figures](https://evissl-arslan.surge.sh)** &nbsp;·&nbsp; **[Source](https://github.com/arslan-ahm/evidential-semi-supervised-lesion-segmentation)** &nbsp;·&nbsp; [All seven projects](https://seven-ai-projects-arslan.surge.sh)
+**[▶ Try the live demo](https://huggingface.co/spaces/ARslan-Ahamd/evidential-semi-supervised-lesion-segmentation)** &nbsp;·&nbsp; **[Full results](https://evissl-arslan.surge.sh)** &nbsp;·&nbsp; [All seven projects](https://seven-ai-projects-arslan.surge.sh)
+
+<sub>The demo runs this repository's own code in your browser via Pyodide — no server, nothing uploaded.</sub>
 <!-- links:end -->
 
 > **Evidential semi-supervised skin lesion segmentation in a sub-1M-parameter
