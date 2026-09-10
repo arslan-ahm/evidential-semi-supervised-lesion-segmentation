@@ -6,6 +6,10 @@
 
 # Calibrated Uncertainty over Confidence Thresholds
 
+<!-- links:begin -->
+**[Live results and figures](https://evissl-arslan.surge.sh)** &nbsp;·&nbsp; **[Source](https://github.com/arslan-ahm/evidential-semi-supervised-lesion-segmentation)** &nbsp;·&nbsp; [All seven projects](https://seven-ai-projects-arslan.surge.sh)
+<!-- links:end -->
+
 **Evidential semi-supervised skin lesion segmentation with a sub-1M-parameter network**
 
 Semi-supervised segmentation decides which unlabelled pixels the student should
